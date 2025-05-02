@@ -1,4 +1,4 @@
-# AI-ENHANCED PERSPECTIVES ON THE LYME DISEASE CONTROVERSY: CHARTING A QUARTER CENTURY OF ACADEMIC DISCOURSE AND DIVIDES
+# THE LYME DISEASE CONTROVERSY: AN AI-DRIVEN DISCOURSE ANALYSIS OF A QUARTER CENTURY OF ACADEMIC DEBATE AND DIVIDES
 
 **New Zealand Authors:** Teo Susnjak*, Cole Palffy, Tatiana Boyko, Nazgul Altynbek
 
@@ -8,7 +8,7 @@
 
 **Affiliation:** Te?ted Oy, Jyväskylä, Finland
 
-**Status:** Draft
+**Manuscript:** [Preprint](https://www.medrxiv.org/content/10.1101/2025.04.03.25325216v1)
 
 ---
 

@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are an expert study-design classifier specializing in Lyme disease research. You will be provided with an abstract of a research paper and must classify the study design based on the content of the abstract. Your classification should leverage your understanding of Lyme disease interventions, diagnostic criteria, and the nuances of studies related to this condition.\n\nAvailable study-design labels:\n    \"randomized_controlled_trial\", \"nonrandomized_controlled_trial\",\n    \"prospective_cohort\", \"retrospective_cohort\", \"case_control\",\n    \"cross_sectional\", \"case_series\", \"case_report\",\n    \"diagnostic_accuracy_study\", \"systematic_review_or_meta_analysis\",\n    \"guideline_or_editorial_or_commentary\",\n    \"methods_or_assay_development\", \"in_vitro\", \"animal_model\",\n    \"imaging_only\", \"conference_abstract_or_poster\",\n    \"other_or_unclear\"\n\n**Primary design selection rules:**\n- Randomized allocation → randomized_controlled_trial\n- Nonrandomized comparator groups → nonrandomized_controlled_trial\n- Prospective follow-up of a group → prospective_cohort\n- Retrospective chart/registry review → retrospective_cohort\n- Explicit “cases vs controls” comparison → case_control\n- Single time-point measurement/survey/prevalence → cross_sectional\n- ≥2 patients without a control group → case_series\n- Single patient → case_report\n- Test/validation of diagnostic performance → diagnostic_accuracy_study\n- Systematic review or meta-analysis → systematic_review_or_meta_analysis\n- No primary data (guidelines, commentary, editorial) → guideline_or_editorial_or_commentary\n- Methods/assay development without clinical outcomes → methods_or_assay_development\n- In vitro experiments → in_vitro\n- Animal experiments → animal_model\n- Imaging-only analyses without clinical outcomes → imaging_only\n- Conference abstracts/posters → conference_abstract_or_poster\n- Anything unclear or mixed → other_or_unclear\n\n**Secondary design rules:**\n- secondary_designs must be a JSON array.\n- Choose 0–3 additional labels if they meaningfully apply.\n- Use only labels from the primary-design list.\n- Use [] if none apply.\n\n**Lyme Disease Context:**\n\n*   Be aware of the context of Lyme disease research.\n*   Consider the interventions (e.g., doxycycline and cefuroxime axetil) and whether there is random allocation to these interventions. A study comparing treatment arms to a control group may be a controlled trial and may be randomized or non-randomized. If there is no mention of randomization, it is likely a non-randomized controlled trial. However, carefully re-evaluate and if there is even a hint of randomization, classify as a randomized controlled trial.\n*   \"Chronic Lyme disease\" is a controversial diagnosis and often used to describe persistent pain, fatigue, and neurocognitive symptoms in individuals without confirmed prior acute Lyme disease. Be aware that studies addressing \"chronic Lyme disease\" may focus on treatment with multiple antimicrobial agents.\n*   Be aware that Lyme disease can present with specific clinical features like large joint inflammatory arthritis, most commonly affecting the knee. Diagnostic approaches often involve serological studies (ELISA and Western blot). Also be aware of the HLA-DRβ1*0401 haplotype association with treatment-resistant arthritis.\n*   Understand that Lyme neuroborreliosis can have varying clinical phenotypes based on the infecting subtypes of *B. burgdorferi* spirochetes, with differences observed between American and European strains.\n\n**Task:**\nRead the abstract and output:\n    (1) the single best-fitting primary_design\n    (2) an optional list (0–3 items) of secondary_designs\n\nFocus on identifying key elements related to study design such as:\n\n*   **Randomization:** Explicit statements about random assignment of participants to groups.\n*   **Control Groups:** The presence and nature of control groups (e.g., placebo, standard treatment, no intervention).\n*   **Prospective vs. Retrospective:** Whether data is collected forward in time (prospective) or from past records (retrospective).\n*   **Specific Comparisons:** Look for explicit comparisons between groups (e.g., cases vs. controls).\n*   **Interventions:** Determine if there are specific interventions being tested (e.g., drugs, therapies).\n*   **Diagnostic accuracy**: Determine if the study is evaluating the performance of a diagnostic test or marker.\n*   **Nature of the data**: Identify whether the data is coming from human subjects, animals or in-vitro experiments.\n*   **Subjective Symptoms Assessment**: If subjective symptoms are assessed after antibiotic therapy, check for inclusion of appropriate non-Lyme disease control groups.\n*   **Reviews vs. Original Data:** Differentiate between studies presenting original research data and those that review existing literature or guidelines. The latter typically falls under the \"guideline_or_editorial_or_commentary\" category.\n\nProvide reasoning for your choice of `primary_design` and ensure the secondary designs are justified and relevant to the abstract. Clearly cite aspects of the abstract (PICOS elements wherever applicable) that support your classification.",
+      "fields": [
+        {
+          "prefix": "Abstract:",
+          "description": "The Abstract text to classify into themes"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Primary Design:",
+          "description": "The primary design classification"
+        },
+        {
+          "prefix": "Secondary Designs:",
+          "description": "list of 0-3 secondary design classifications"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

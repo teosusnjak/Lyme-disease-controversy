@@ -1,4 +1,10 @@
-# Evidence-Domain Translation in the Lyme Disease Controversy over Persistent Post-Treatment Symptoms
+# Study 2: Evidence-Domain Translation
+
+This directory supports:
+
+> Susnjak, T., Brehme, L., Garg, K., Avramovic, G., and Gilbert, L. (2026). Evidence-Domain Translation in the Lyme Disease Controversy over Persistent Post-Treatment Symptoms. *Frontiers in Cellular and Infection Microbiology*, 16. https://doi.org/10.3389/fcimb.2026.1913455
+
+Study 2 builds on the corpus and classification framework developed in Study 1. It examines how model-derived claim orientations are distributed across study-design and evidence-domain tiers, and uses targeted full-text audits to examine how selected clinical and preclinical findings are translated into broader claims.
 
 This repository contains the data, DSPy classifiers, notebooks and results used to collect, classify and analyze scientific abstracts related to the controversy between "Post-Treatment Lyme Disease Syndrome" (PTLDS) and "Chronic Lyme Disease" (CLD).
 
@@ -12,6 +18,14 @@ There are **four** distinct classification stages applied to each abstract, each
 Each stage is run independently with three models (Gemini, GPT, Grok), then ensembled (majority vote) into a final label; results are validated against human-annotated ground truth, and `notebooks/final_data.ipynb` merges all four stages into `results/final_classification_results.json`, the end product of the pipeline.
 
 Classifiers are DSPy programs optimized with **GEPA**; notebooks contain the training and inference code; `results/` and `validation/` hold the outputs of each stage.
+
+## Availability and exclusions
+
+Selected raw data not subject to third-party copyright, together with analysis code and compact worked examples, will be made available here.
+
+The source corpus of article abstracts and copyrighted article full texts will not be redistributed. Released records may include persistent identifiers and permitted bibliographic metadata so that readers can retrieve the source material from its original database or publisher. Model outputs must be checked before release and must not contain embedded abstract or full-text content that cannot be redistributed.
+
+See the [repository home page](../) for the article link and abstract.
 
 ## Repository structure
 

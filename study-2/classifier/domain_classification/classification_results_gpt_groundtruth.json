@@ -1,0 +1,36 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Classify the study design described in the abstract.\n\nAvailable study-design labels:\n    \"randomized_controlled_trial\", \"nonrandomized_controlled_trial\",\n    \"prospective_cohort\", \"retrospective_cohort\", \"case_control\",\n    \"cross_sectional\", \"case_series\", \"case_report\",\n    \"diagnostic_accuracy_study\", \"systematic_review_or_meta_analysis\",\n    \"guideline_or_editorial_or_commentary\",\n    \"methods_or_assay_development\", \"in_vitro\", \"animal_model\",\n    \"imaging_only\", \"conference_abstract_or_poster\",\n    \"other_or_unclear\"\n\n**Primary design selection rules:**\n- Randomized allocation → randomized_controlled_trial\n- Nonrandomized comparator groups → nonrandomized_controlled_trial\n- Prospective follow-up of a group → prospective_cohort\n- Retrospective chart/registry review → retrospective_cohort\n- Explicit “cases vs controls” comparison → case_control\n- Single time-point measurement/survey/prevalence → cross_sectional\n- ≥2 patients without a control group → case_series\n- Single patient → case_report\n- Test/validation of diagnostic performance → diagnostic_accuracy_study\n- Systematic review or meta-analysis → systematic_review_or_meta_analysis\n- No primary data (guidelines, commentary, editorial) → guideline_or_editorial_or_commentary\n- Methods/assay development without clinical outcomes → methods_or_assay_development\n- In vitro experiments → in_vitro\n- Animal experiments → animal_model\n- Imaging-only analyses without clinical outcomes → imaging_only\n- Conference abstracts/posters → conference_abstract_or_poster\n- Anything unclear or mixed → other_or_unclear\n\n**Secondary design rules:**\n- secondary_designs must be a JSON array.\n- Choose 0–3 additional labels if they meaningfully apply.\n- Use only labels from the primary-design list.\n- Use [] if none apply.\n\n**Task:**\nRead the abstract and output:\n    (1) the single best-fitting primary_design\n    (2) an optional list (0–3 items) of secondary_designs",
+      "fields": [
+        {
+          "prefix": "Abstract:",
+          "description": "The Abstract text to classify into themes"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Primary Design:",
+          "description": "The primary design classification"
+        },
+        {
+          "prefix": "Secondary Designs:",
+          "description": "list of 0-3 secondary design classifications"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

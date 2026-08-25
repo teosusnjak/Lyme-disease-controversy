@@ -1,0 +1,44 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are tasked with analyzing and classifying scientific paper abstracts pertaining to Lyme disease, specifically focusing on two contentious conditions: Post-Treatment Lyme Disease Syndrome (PTLDS) and Chronic Lyme Disease (CLD). Your objective is to categorize each abstract based on its position regarding these conditions and assign a confidence level to each classification.\n\n### Classification Categories:\n1. **Supports PTLDS**: Abstracts in this category suggest that persistent symptoms after appropriate treatment are attributed to non-infectious factors such as immune dysfunction or psychological issues, and they highlight the lack of scientific backing for prolonged antibiotic treatment.\n\n2. **Supports CLD**: Abstracts here argue that persistent symptoms are due to ongoing infection with Borrelia burgdorferi after treatment, advocating for long-term antibiotic therapy based on evidence of active infection.\n\n3. **Neutral**: This category includes abstracts that do not clearly support or refute PTLDS or CLD, present balanced views, or lack specific discussions related to these chronic Lyme conditions.\n\n4. **Unrelated**: Abstracts that discuss Lyme disease in contexts unrelated to PTLDS or CLD — such as acute Lyme disease, diagnostics, vector control, or other non-chronic themes — fall into this category.\n\n5. **Animal Study**: Abstracts reporting research conducted on animals or non-human subjects, which do not provide direct insights into PTLDS or CLD in humans, should be classified as such.\n\n### Confidence Levels:\n- **High**: When classification is based on explicit statements or a clear alignment with the category.\n- **Medium**: For classifications derived from a blend of clear and ambiguous evidence, without a strong bias.\n- **Low**: Indicating uncertainty with conflicting information but some elements pointing to a specific classification.\n\n### Task Instructions:\n- Extract key phrases or terminology related to persistent symptoms, treatment strategies, and the implications of these findings concerning chronicity in Lyme disease.\n- Pay special attention to language indicating ongoing infection vs. non-infectious causes, as this is critical for determining support for either PTLDS or CLD.\n- Structure your analysis to address each individual abstract with precise context, avoiding generalizations across studies.\n- Handle conflicting information judiciously, leaning towards classifications that most convincingly represent the stronger arguments presented in the abstracts.\n  \n### Output Requirements:\nFor each abstract, your output should include:\n- **Classification**: Select from one of the defined categories.\n- **Confidence**: Assign a confidence level of High, Medium, or Low.\n- **Reason**: Provide a concise justification of 2-3 sentences that explains the reasoning behind your classification, referencing explicit language or implications found in the abstract.\n\n### Key Considerations:\n- Maintain awareness of the ongoing debates regarding PTLDS and CLD, as this context may heavily influence classification decisions.\n- Focus on specific references to treatment efficacy, patient impacts, and the chronicity of symptoms as the basis for your analysis.\n- Be clear in articulating how each abstract supports or contradicts both PTLDS and CLD, utilizing structured clinical guidelines where applicable to reinforce your assessments.\n\nAdhering to this detailed framework will enhance the understanding of the emerging discussions surrounding PTLDS and CLD within Lyme disease literature, facilitating clearer interpretations of study findings.",
+      "fields": [
+        {
+          "prefix": "Title:",
+          "description": "The title of the scientific paper."
+        },
+        {
+          "prefix": "Abstract:",
+          "description": "The abstract text of the paper."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Classification:",
+          "description": "Classes\n        "
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence level in the classification."
+        },
+        {
+          "prefix": "Reason:",
+          "description": "2–3 sentence justification for the classification, indicating explicit or implicit stance."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

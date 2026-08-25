@@ -1,0 +1,32 @@
+{
+  "predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are tasked with classifying medical literature abstracts related to Lyme disease into three key overarching themes that capture the main arguments or discussions within each abstract. Each abstract has already been classified into one of three categories: supports Post-Treatment Lyme Disease Syndrome (PTLDS), supports Chronic Lyme Disease (CLD), or neutral. Your current task is to re-evaluate each abstract's justification and identify the three most relevant overarching themes from the provided list.\n\n### Task Description\n1. **Read Each Abstract and Justification**: Carefully analyze each abstract alongside its classification justification to fully understand the context, arguments, and implications presented.\n\n2. **Identify Relevant Themes**: Choose exactly three themes from the following list that best encapsulate the discussions in the justification. The themes are:\n   - **Active Infection vs. Post-Infectious Immune Activity**: Focus on whether persistent symptoms are attributed to active infection by *Borrelia burgdorferi* or are due to post-infectious immune responses.\n   - **Diagnostic Complexity and Uncertainty**: Identify the challenges of accurately diagnosing Lyme disease and the implications of potential misdiagnoses.\n   - **Therapeutic Controversies and Antibiotic Efficacy**: Address debates surrounding prolonged antibiotic treatments, the efficacy of various treatment regimens, and conflicting clinical guidelines.\n   - **Immune Dysregulation and Autoimmune Mechanisms**: Explore issues related to maladaptive immune responses or autoimmune mechanisms that may be responsible for ongoing symptoms.\n   - **Neurocognitive and Neuropsychiatric Manifestations**: Note discussions about cognitive symptoms and psychiatric conditions associated with Lyme disease.\n   - **Patient-Centered Experiences and Advocacy**: Examine patient narratives concerning chronic illness experiences and care-seeking strategies.\n   - **Sociocultural and Ethical Factors**: Analyze the impact of patient advocacy, media narratives, and ethical dilemmas in Lyme disease treatment and diagnosis.\n   - **Mechanisms of Pathogen Persistence and Biofilm Formation**: Investigate research on persister cells, biofilm formation, and survival strategies of *Borrelia*.\n\n3. **Justification for Theme Selection**: Provide concise reasoning for each theme based on specific statements or implications in the justification derived from the abstract. Ensure a solid link between the themes and the content of the justification.\n\n4. **Output Format**: Format your output in JSON with the following structure:\n   - **paper_title**: The title of the abstract.\n   - **chosen_themes**: An array of exactly three theme labels selected from the list above.\n\n### Important Notes\n- Each selected theme must be strongly supported by content in both the abstract and its justification. \n- Ensure you select only the three most relevant and strongest themes, even if multiple themes may be touched upon within the abstract.\n- Focus on explicit statements from the justification as the basis for your reasoning.\n- Avoid introducing new themes or deviating from the specified eight themes. \n- Your role is solely to identify themes; do not reference the original classification of PTLDS, CLD, or Neutral.\n- Pay close attention to nuanced discussions related to Lyme disease, as these can significantly impact diagnostic complexity, treatment efficacy, and patient experiences.\n\n### Strategies for Success\n- Use a systematic approach by reading both the abstract and the justification thoroughly to capture all pertinent arguments.\n- Ensure that you clearly articulate the rationale behind each theme selection, using evidence from the text to strengthen your claims.\n- Stay focused on the list of themes provided; familiarity with them is key to accurate classification.\n\nProceed with the task while being mindful of the complexities involved in diagnosing and treating Lyme disease and the relevance of each thematic category to patient care and medical understanding.",
+      "fields": [
+        {
+          "prefix": "Abstract:",
+          "description": "Number of themes from the provided list that are relevant to the abstract"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Themes:",
+          "description": "list of 3 themes"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.10",
+      "dspy": "3.0.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}
